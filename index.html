@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kafa Cake & Bakery - Price List & Menu</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --brand-brown: #3d1a0c;
+      --brand-brown-light: #5a2c19;
+      --brand-yellow: #fab818;
+      --brand-yellow-light: #fff8e1;
+      --bg-cream: #fdfaf5;
+      --card-bg: #ffffff;
+      --text-dark: #291207;
+      --text-muted: #73645b;
+      --border-color: #ede2d4;
+      --shadow-sm: 0 4px 14px rgba(61, 26, 12, 0.05);
+      --shadow-md: 0 10px 24px rgba(61, 26, 12, 0.09);
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-cream);
+      color: var(--text-dark);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.6;
+      padding-bottom: 95px;
+    }
+
+    .brand-font {
+      font-family: 'Fredoka', cursive, sans-serif;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* HEADER */
+    header {
+      background: radial-gradient(circle at center, #fff4d4 0%, #fae29f 100%);
+      padding: 42px 20px 32px;
+      text-align: center;
+      border-bottom: 3px solid var(--brand-brown);
+    }
+
+    .logo-wrapper {
+      width: 125px;
+      height: 125px;
+      margin: 0 auto 16px;
+      border-radius: 50%;
+      background: #fff;
+      padding: 4px;
+      box-shadow: 0 8px 24px rgba(61, 26, 12, 0.15);
+      border: 3px solid var(--brand-brown);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .logo-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--brand-brown);
+      letter-spacing: -0.5px;
+      margin-bottom: 4px;
+      line-height: 1.1;
+    }
+
+    .tagline {
+      display: inline-block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--brand-brown);
+      background: rgba(61, 26, 12, 0.08);
+      padding: 4px 18px;
+      border-radius: 50px;
+      margin-bottom: 12px;
+    }
+
+    header p {
+      color: var(--brand-brown-light);
+      font-size: 0.98rem;
+      max-width: 550px;
+      margin: 0 auto 20px;
+      font-weight: 500;
+    }
+
+    .header-btns {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 22px;
+      border-radius: 50px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn-wa {
+      background-color: var(--brand-brown);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(61, 26, 12, 0.25);
+      border: 2px solid var(--brand-brown);
+    }
+
+    .btn-wa:hover {
+      background-color: var(--brand-brown-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-maps {
+      background-color: #fff;
+      color: var(--brand-brown);
+      border: 2px solid var(--brand-brown);
+    }
+
+    .btn-maps:hover {
+      background-color: var(--brand-yellow-light);
+      transform: translateY(-2px);
+    }
+
+    /* KURIR DELIVERY CARD */
+    .delivery-box {
+      background: #ffffff;
+      border: 2px dashed var(--brand-brown);
+      border-radius: 18px;
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 18px 20px;
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+    }
+
+    .delivery-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--brand-yellow);
+      color: var(--brand-brown);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 3px 12px;
+      border-radius: 30px;
+      margin-bottom: 8px;
+    }
+
+    .delivery-text {
+      font-size: 0.92rem;
+      color: var(--brand-brown);
+      font-weight: 600;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    .delivery-text span {
+      display: block;
+      color: #b35300;
+      font-size: 0.84rem;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    .btn-courier {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background-color: #25d366;
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 10px 24px;
+      border-radius: 50px;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35);
+      transition: all 0.2s;
+    }
+
+    .btn-courier:hover {
+      background-color: #1eb956;
+      transform: translateY(-2px);
+    }
+
+    /* GALERI SLIDER / PRODUK */
+    .showcase-section {
+      margin: 32px 0 20px;
+    }
+
+    .showcase-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--brand-brown);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .gallery-scroll {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      padding-bottom: 12px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .gallery-scroll::-webkit-scrollbar {
+      height: 6px;
+    }
+    .gallery-scroll::-webkit-scrollbar-thumb {
+      background: #e2cca6;
+      border-radius: 10px;
+    }
+
+    .gallery-card {
+      flex: 0 0 160px;
+      scroll-snap-align: start;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-card span {
+      display: block;
+      padding: 8px 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--brand-brown);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* MENU SECTION & ICON LOGO */
+    .menu-section {
+      margin-top: 36px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .section-header h2 {
+      font-size: 1.45rem;
+      color: var(--brand-brown);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .section-header .divider {
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, var(--brand-yellow), transparent);
+    }
+
+    .grid-menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+    .item-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+
+    .item-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--brand-yellow);
+    }
+
+    /* Icon logo pengganti foto untuk pricelist */
+    .item-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      background: var(--brand-yellow-light);
+      border: 1.5px solid #fae29f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--brand-brown);
+      flex-shrink: 0;
+    }
+
+    .item-icon svg {
+      width: 28px;
+      height: 28px;
+      fill: currentColor;
+    }
+
+    .item-details {
+      flex: 1;
+    }
+
+    .item-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--brand-brown);
+      line-height: 1.3;
+    }
+
+    .item-sub {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .item-action {
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .item-price {
+      font-family: 'Fredoka', cursive;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--brand-brown);
+      background: #fdf2d0;
+      padding: 2px 8px;
+      border-radius: 8px;
+      display: inline-block;
+    }
+
+    .order-link {
+      display: block;
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: #128c7e;
+      text-decoration: none;
+      margin-top: 4px;
+    }
+
+    .order-link:hover {
+      text-decoration: underline;
+    }
+
+    /* FLOATING BOTTOM BAR */
+    .floating-container {
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 32px);
+      max-width: 500px;
+      background: var(--brand-brown);
+      border-radius: 50px;
+      padding: 8px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 12px 30px rgba(61, 26, 12, 0.35);
+      border: 1.5px solid var(--brand-yellow);
+      z-index: 999;
+    }
+
+    .floating-text {
+      color: #fff;
+      padding-left: 10px;
+      font-size: 0.85rem;
+    }
+
+    .floating-text strong {
+      display: block;
+      color: var(--brand-yellow);
+      font-size: 0.92rem;
+    }
+
+    .floating-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .floating-btn {
+      text-decoration: none;
+      padding: 9px 16px;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: 0.2s;
+    }
+
+    .btn-wa-float {
+      background: #25d366;
+      color: #fff;
+    }
+
+    .btn-map-float {
+      background: #fff;
+      color: var(--brand-brown);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 45px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.1rem;
+      }
+      .logo-wrapper {
+        width: 105px;
+        height: 105px;
+      }
+      .grid-menu {
+        grid-template-columns: 1fr;
+      }
+      .floating-text {
+        display: none;
+      }
+      .floating-container {
+        justify-content: center;
+        padding: 6px;
+      }
+      .floating-actions {
+        width: 100%;
+      }
+      .floating-btn {
+        flex: 1;
+        justify-content: center;
+        padding: 11px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <div class="logo-wrapper">
+        <img src="logo.png" alt="Logo Kafa Cake & Bakery" onerror="this.src='kafa.jpeg'">
+      </div>
+      <h1 class="brand-font">Kafa Cake & Bakery</h1>
+      <span class="tagline">Lembut • Segar • Halal</span>
+      <p>Pilihan bolu gulung, bolu jadul klasik, dan aneka roti empuk yang dipanggang fresh setiap hari.</p>
+      
+      <!-- Tombol Toko & Lokasi -->
+      <div class="header-btns">
+        <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20saya%20mau%20order" target="_blank" class="btn btn-wa">
+          <span>💬 Order via WhatsApp</span>
+        </a>
+        <a href="https://share.google/VrqIJaeDTGUd3rwjS" target="_blank" class="btn btn-maps">
+          <span>📍 Lokasi Google Maps</span>
+        </a>
+      </div>
+
+      <!-- KOTAK INFORMASI KURIR / PESAN ANTAR -->
+      <div class="delivery-box">
+        <div class="delivery-badge">🛵 Layanan Antar Rumah</div>
+        <p class="delivery-text">
+          Jika ingin pesan diantarkan langsung ke rumah, bilang <strong>"ingin minta kurirkan ke Kafa Bakery"</strong>
+          <span>⏰ Jam Operasional Antar: 09.00 Pagi – 20.00 Malam</span>
+        </p>
+        <a href="https://wa.me/6285787082029?text=Halo%20kak,%20saya%20ingin%20pesan%20dan%20minta%20kurirkan%20ke%20Kafa%20Bakery" target="_blank" class="btn-courier">
+          <span>🛵 Hubungi WA Kurir</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- GALERI PRODUK KAFA (FOTO ASLI) -->
+    <section class="showcase-section">
+      <div class="showcase-title brand-font">
+        <span>✨ Galeri Produk Kafa</span>
+      </div>
+      <div class="gallery-scroll">
+        <div class="gallery-card">
+          <img src="kafa.jpeg" alt="Kafa Cake" onerror="this.style.display='none'">
+          <span>Kafa Special</span>
+        </div>
+        <div class="gallery-card">
+          <img src="jadul1.jpeg" alt="Bolu Jadul" onerror="this.style.display='none'">
+          <span>Bolu Jadul 1</span>
+        </div>
+        <div class="gallery-card">
+          <img src="jadul2.jpeg" alt="Bolu Jadul" onerror="this.style.display='none'">
+          <span>Bolu Jadul 2</span>
+        </div>
+        <div class="gallery-card">
+          <img src="coklat.jpeg" alt="Bolu Coklat" onerror="this.style.display='none'">
+          <span>Varian Cokelat</span>
+        </div>
+        <div class="gallery-card">
+          <img src="meses.jpeg" alt="Bolu Meses" onerror="this.style.display='none'">
+          <span>Choco Meses</span>
+        </div>
+        <div class="gallery-card">
+          <img src="abon.jpeg" alt="Roti Abon" onerror="this.style.display='none'">
+          <span>Roti Abon</span>
+        </div>
+        <div class="gallery-card">
+          <img src="cake1.jpeg" alt="Cake 1" onerror="this.style.display='none'">
+          <span>Cake Premium 1</span>
+        </div>
+        <div class="gallery-card">
+          <img src="cake2.jpeg" alt="Cake 2" onerror="this.style.display='none'">
+          <span>Cake Premium 2</span>
+        </div>
+        <div class="gallery-card">
+          <img src="cake3.jpeg" alt="Cake 3" onerror="this.style.display='none'">
+          <span>Cake Premium 3</span>
+        </div>
+        <div class="gallery-card">
+          <img src="nastar.jpeg" alt="Kue Nastar" onerror="this.style.display='none'">
+          <span>Special Nastar</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1. BOLU GULUNG (IKON LOGO CAKE) -->
+    <section class="menu-section">
+      <div class="section-header">
+        <h2 class="brand-font">Price List Bolu Gulung</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="grid-menu">
+        
+        <div class="item-card">
+          <div class="item-icon">
+            <!-- Icon Cake / Bolu Minimalis -->
+            <svg viewBox="0 0 24 24"><path d="M12 2a1.5 1.5 0 0 1 1.5 1.5c0 .32-.1.62-.28.86l.03.04a2.5 2.5 0 0 1 1.25 2.1c0 .4-.1.78-.28 1.11C15.1 7.8 16 8.78 16 10v1H8v-1c0-1.22.9-2.2 2-2.39-.18-.33-.28-.71-.28-1.11a2.5 2.5 0 0 1 1.25-2.1l.03-.04c-.18-.24-.28-.54-.28-.86A1.5 1.5 0 0 1 12 2m-7 10h14a1 1 0 0 1 1 1v6a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-6a1 1 0 0 1 1-1m2 2v5a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-5H7z"/></svg>
+          </div>
+          <div class="item-details">
+            <div class="item-title">Bolu Gulung Nanas</div>
+            <div class="item-sub">Selai nanas manis segar</div>
+          </div>
+          <div class="item-action">
+            <div class="item-price">47.000</div>
+            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Gulung%20Nanas" target="_blank" class="order-link">Pesan ➔</a>
+          </div>
+        </div>
+
+        <div class="item-card">
+          <div class="item-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2a1.5 1.5 0 0 1 1.5 1.5c0 .32-.1.62-.28.86l.03.04a2.5 2.5 0 0 1 1.25 2.1c0 .4-.1.78-.28 1.11C15.1 7.8 16 8.78 16 10v1H8v-1c0-1.22.9-2.2 2-2.39-.18-.33-.28-.71-.28-1.11a2.5 2.5 0 0 1 1.25-2.1l.03-.04c-.18-.24-.28-.54-.28-.86A1.5 1.5 0 0 1 12 2m-7 10h14a1 1 0 0 1 1 1v6a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-6a1 1 0 0 1 1-1m2 2v5a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-5H7z"/></svg>
+          </div>
+          <div class="item-details">
+            <div class="item-title">Bolu Gulung Blueberry</div>
+            <div class="item-sub">Selai blueberry harum</div>
+          </div>
+          <div class="item-action">
+            <div class="item-price">47.000</div>
+            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Gulung%20Blueberry" target="_blank" class="order-link">Pesan ➔</a>
+          </div>
+        </div>
+
+        <div class="item-card">
+          <div class="item-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2a1.5 1.5 0 0 1 1.5 1.5c0 .32-.1.62-.28.86l.03.04a2.5 2.5 0 0 1 1.25 2.1c0 .4-.1.78-.28 1.11C15.1 7.8 16 8.78 16 10v1H8v-1c0-1.22.9-2.2 2-2.39-.18-.33-.28-.71-.28-1.11a2.5 2.5 0 0 1 1.25-2.1l.03-.04c-.18-.24-.28-.54-.28-.86A1.5 1.5 0 0 1 12 2m-7 10h14a1 1 0 0 1 1 1v6a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-6a1 1 0 0 1 1-1m2 2v5a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-5H7z"/></svg>
+          </div>
+          <div class="item-details">
+            <div class="item-title">Bolu Gulung Strawberry</div>
+            <div class="item-sub">Selai strawberry segar</div>
+          </div>
+          <div class="item-action">
+            <div class="item-price">47.000</div>
+            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Gulung%20Strawberry" target="_blank" class="order-link">Pesan ➔</a>
+          </div>
+        </div>
+
+        <div class="item-card">
+          <div class="item-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2a1.5 1.5 0 0 1 1.5 1.5c0 .32-.1.62-.28.86l.03.04a2.5 2.5 0 0 1 1.25 2.1c0 .4-.1.78-.28 1.11C15.1 7.8 16 8.78 16 10v1H8v-1c0-1.22.9-2.2 2-2.39-.18-.33-.28-.71-.28-1.11a2.5 2.5 0 0 1 1.25-2.1l.03-.04c-.18-.24-.28-.54-.28-.86A1.5 1.5 0 0 1 12 2m-7 10h14a1 1 0 0 1 1 1v6a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-6a1 1 0 0 1 1-1m2 2v5a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-5H7z"/></svg>
+          </div>
+          <div class="item-details">
+            <div class="item-title">Bolu Gulung Vanilla</div>
+            <div class="item-sub">Krim vanilla lembut favorit</div>
+          </div>
+          <div class="item-action">
+            <div class="item-price">49.000</div>
+            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Gulung%20Vanilla" target="_blank" class="order-link">Pesan ➔</a>
+          </div>
+        </div>
+
+        <div class="item-card">
+          <div class="item-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2a1.5 1.5 0 0 1 1.5 1.5c0 .32-.1.62-.28.86l.03.04a2.5 2.5 0 0 1 1.25 2.1c0 .4-.1.78-.28 1.11C15.1 7.8 16 8.78 16 10v1H8v-1c0-1.22.9-2.2 2-2.39-.18-.33-.28-.71-.28-1.11a2.5 2.5 0 0 1 1.25-2.1l.03-.04c-.18-.24-.28-.54-.28-.86A1.5 1.5 0 0 1 12 2m-7 10h14a1 1 0 0 1 1 1v6a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-6a1 1 0 0 1 1-1m2 2v5a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-5H7z"/></svg>
+          </div>
+          <div class="item-details">
+            <div class="item-title">Bolu Gulung Caramel</div>
+            <div class="item-sub">Rasa manis caramel legit</div>
+          </div>
+          <div class="item-action">
+            <div class="item-price">49.000</div>
+            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Gulung%20Caramel" target="_blank" class="order-link">Pesan ➔</a>
+          </div>
+        </div>
+
+        <div class="item-card">
+          <div class="item-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2a1.5 1.5 0 0 1 1.5 1.5c0 .32-.1.62-.28.86l.03.04a2.5 2.5 0 0 1 1.25 2.1c0 .4-.1.78-.28 1.11C15.1 7.8 16 8.78 16 10v1H8v-1c0-1.22.9-2.2 2-2.39-.18-.33-.28-.71-.28-1.11a2.5 2.5 0 0 1 1.25-2.1l.03-.04c-.18-.24-.28-.54-.28-.86A1.5 1.5 0 0 1 12 2m-7 10h14a1 1 0 0 1 1 1v6a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-6a1 1 0 0 1 1-1m2 2v5a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-5H7z"/></svg>
+          </div>
+          <div class="item-details">
+            <div class="item-title">Bolu Choco Meses</div>
+            <div class="item-sub">Meses cokelat tebal & lezat</div>
+          </div>
+          <div class="item-action">
+            <div class="item-price">54.000</div>
+            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Gulung%20Choco%20Meses" target="_blank" class="order-link">Pesan ➔</a>
+          </div>
+        </div>
+
+        <div class="item-card">
+          <div class="item-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2a1.5 1.5 0 0 1 1.5 1.5c0 .32-.1.62-.28.86l.03.04a2.5 2.5 0 0 1 1.25 2.1c0 .4-.1.78-.28 1.11C15.1 7.8 16 8.78 16 10v1H8v-1c0-1.22.9-2.2 2-2.39-.18-.33-.28-.71-.28-1.11a2.5 2.5 0 0 1 1.25-2.1l.03-.04c-.18-.24-.28-.54-.28-.86A1.5 1.5 0 0 1 12 2m-7 10h14a1 1 0 0 1 1 1v6a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-6a1 1 0 0 1 1-1m2 2v5a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-5H7z"/></svg>
+          </div>
+          <div class="item-details">
+            <div class="item-title">Bolu Coklat Keju</div>
+            <div class="item-sub">Perpaduan cokelat & keju gurih</div>
+          </div>
+          <div class="item-action">
+            <div class="item-price">54.000</div>
+            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Gulung%20Coklat%20Keju" target="_blank" class="order-link">Pesan ➔</a>
+          </div>
+        </div>
+
+        <div class="item-card">
+          <div class="item-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2a1.5 1.5 0 0 1 1.5 1.5c0 .32-.1.62-.28.86l.03.04a2.5 2.5 0 0 1 1.25 2.1c0 .4-.1.78-.28 1.11C15.1 7.8 16 8.78 16 10v1H8v-1c0-1.22.9-2.2 2-2.39-.18-.33-.28-.71-.28-1.11a2.5 2.5 0 0 1 1.25-2.1l.03-.04c-.18-.24-.28-.54-.28-.86A1.5 1.5 0 0 1 12 2m-7 10h14a1 1 0 0 1 1 1v6a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-6a1 1 0 0 1 1-1m2 2v5a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-5H7z"/></svg>
+          </div>
+          <div class="item-details">
+            <div class="item-title">Bolu Vanilla Keju</div>
+            <div class="item-sub">Vanilla wangi dengan topping keju</div>
+          </div>
+          <div class="item-action">
+            <div class="item-price">54.000</div>
+            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Gulung%20Vanilla%20Keju" target="_blank" class="order-link">Pesan ➔</a>
+          </div>
+        </div>
+
+        <div class="item-card">
+          <div class="item-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2a1.5 1.5 0 0 1 1.5 1.5c0 .32-.1.62-.28.86l.03.04a2.5 2.5 0 0 1 1.25 2.1c0 .4-.1.78-.28 1.11C15.1 7.8 16 8.78 16 10v1H8v-1c0-1.22.9-2.2 2-2.39-.18-.33-.28-.71-.28-1.11a2.5 2.5 0 0 1 1.25-2.1l.03-.04c-.18-.24-.28-.54-.28-.86A1.5 1.5 0 0 1 12 2m-7 10h14a1 1 0 0 1 1 1v6a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-6a1 1 0 0 1 1-1m2 2v5a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-5H7z"/></svg>
+          </div>
+          <div class="item-details">
+            <div class="item-title">Pandan Keju Coklat</div>
+            <div class="item-sub">Pandan wangi, keju & coklat</div>
+          </div>
+          <div class="item-action">
+            <div class="item-price">54.000</div>
+            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Gulung%20Pandan%20Keju%20Coklat" target="_blank" class="order-link">Pesan ➔</a>
+          </div>
+        </div>
+
+        <div class="item-card">
+          <div class="item-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2a1.5 1.5 0 0 1 1.5 1.5c0 .32-.1.62-.28.86l.03.04a2.5 2.5 0 0 1 1.25 2.1c0 .4-.1.78-.28 1.11C15.1 7.8 16 8.78 16 10v1H8v-1c0-1.22.9-2.2 2-2.39-.18-.33-.28-.71-.28-1.11a2.5 2.5 0 0 1 1.25-2.1l.03-.04c-.18-.24-.28-.54-.28-.86A1.5 1.5 0 0 1 12 2m-7 10h14a1 1 0 0 1 1 1v6a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-6a1 1 0 0 1 1-1m2 2v5a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-5H7z"/></svg>
+          </div>
+          <div class="item-details">
+            <div class="item-title">Pandan Keju Vanilla</div>
+            <div class="item-sub">Pandan harum, vanilla & keju</div>
+          </div>
+          <div class="item-action">
+            <div class="item-price">54.000</div>
+            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Gulung%20Pandan%20Keju%20Vanilla" target="_blank" class="order-link">Pesan ➔</a>
+          </div>
+        </div>
+
+        <div class="item-card">
+          <div class="item-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2a1.5 1.5 0 0 1 1.5 1.5c0 .32-.1.62-.28.86l.03.04a2.5 2.5 0 0 1 1.25 2.1c0 .4-.1.78-.28 1.11C15.1 7.8 16 8.78 16 10v1H8v-1c0-1.22.9-2.2 2-2.39-.18-.33-.28-.71-.28-1.11a2.5 2.5 0 0 1 1.25-2.1l.03-.04c-.18-.24-.28-.54-.28-.86A1.5 1.5 0 0 1 12 2m-7 10h14a1 1 0 0 1 1 1v6a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-6a1 1 0 0 1 1-1m2 2v5a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-5H7z"/></svg>
+          </div>
+          <div class="item-details">
+            <div class="item-title">Lapis Surabaya</div>
+            <div class="item-sub">Kombinasi klasik istimewa</div>
+          </div>
+          <div class="item-action">
+            <div class="item-price">70.000</div>
+            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Lapis%20Surabaya" target="_blank" class="order-link">Pesan ➔</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 2. BOLU JADUL (IKON LOGO CAKE) -->
+    <section class="menu-section">
+      <div class="section-header">
+        <h2 class="brand-font">Price List Bolu Jadul</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="grid-menu">
+
+        <div class="item-card">
+          <div class="item-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2a1.5 1.5 0 0 1 1.5 1.5c0 .32-.1.62-.28.86l.03.04a2.5 2.5 0 0 1 1.25 2.1c0 .4-.1.78-.28 1.11C15.1 7.8 16 8.78 16 10v1H8v-1c0-1.22.9-2.2 2-2.39-.18-.33-.28-.71-.28-1.11a2.5 2.5 0 0 1 1.25-2.1l.03-.04c-.18-.24-.28-.54-.28-.86A1.5 1.5 0 0 1 12 2m-7 10h14a1 1 0 0 1 1 1v6a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-6a1 1 0 0 1 1-1m2 2v5a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-5H7z"/></svg>
+          </div>
+          <div class="item-details">
+            <div class="item-title">16 cm Original</div>
+            <div class="item-sub">Rasa otentik nostalgia</div>
+          </div>
+          <div class="item-action">
+            <div class="item-price">28.000</div>
+            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Jadul%2016cm%20Original" target="_blank" class="order-link">Pesan ➔</a>
+          </div>
+        </div>
+
+        <div class="item-card">
+          <div class="item-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2a1.5 1.5 0 0 1 1.5 1.5c0 .32-.1.62-.28.86l.03.04a2.5 2.5 0 0 1 1.25 2.1c0 .4-.1.78-.28 1.11C15.1 7.8 16 8.78 16 10v1H8v-1c0-1.22.9-2.2 2-2.39-.18-.33-.28-.71-.28-1.11a2.5 2.5 0 0 1 1.25-2.1l.03-.04c-.18-.24-.28-.54-.28-.86A1.5 1.5 0 0 1 12 2m-7 10h14a1 1 0 0 1 1 1v6a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-6a1 1 0 0 1 1-1m2 2v5a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-5H7z"/></svg>
+          </div>
+          <div class="item-details">
+            <div class="item-title">16 cm Topping</div>
+            <div class="item-sub">Topping Keju / Cokelat</div>
+          </div>
+          <div class="item-action">
+            <div class="item-price">32.000</div>
+            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Jadul%2016cm%20Topping" target="_blank" class="order-link">Pesan ➔</a>
+          </div>
+        </div>
+
+        <div class="item-card">
+          <div class="item-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2a1.5 1.5 0 0 1 1.5 1.5c0 .32-.1.62-.28.86l.03.04a2.5 2.5 0 0 1 1.25 2.1c0 .4-.1.78-.28 1.11C15.1 7.8 16 8.78 16 10v1H8v-1c0-1.22.9-2.2 2-2.39-.18-.33-.28-.71-.28-1.11a2.5 2.5 0 0 1 1.25-2.1l.03-.04c-.18-.24-.28-.54-.28-.86A1.5 1.5 0 0 1 12 2m-7 10h14a1 1 0 0 1 1 1v6a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-6a1 1 0 0 1 1-1m2 2v5a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-5H7z"/></svg>
+          </div>
+          <div class="item-details">
+            <div class="item-title">28 cm Original / Zebra</div>
+            <div class="item-sub">Ukuran besar cocok untuk acara</div>
+          </div>
+          <div class="item-action">
+            <div class="item-price">70.000</div>
+            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Jadul%2028cm%20Original/Zebra" target="_blank" class="order-link">Pesan ➔</a>
+          </div>
+        </div>
+
+        <div class="item-card">
+          <div class="item-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2a1.5 1.5 0 0 1 1.5 1.5c0 .32-.1.62-.28.86l.03.04a2.5 2.5 0 0 1 1.25 2.1c0 .4-.1.78-.28 1.11C15.1 7.8 16 8.78 16 10v1H8v-1c0-1.22.9-2.2 2-2.39-.18-.33-.28-.71-.28-1.11a2.5 2.5 0 0 1 1.25-2.1l.03-.04c-.18-.24-.28-.54-.28-.86A1.5 1.5 0 0 1 12 2m-7 10h14a1 1 0 0 1 1 1v6a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-6a1 1 0 0 1 1-1m2 2v5a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-5H7z"/></svg>
+          </div>
+          <div class="item-details">
+            <div class="item-title">28 cm Topping Pilihan</div>
+            <div class="item-sub">Keju / Cokelat Meses / Pisang</div>
+          </div>
+          <div class="item-action">
+            <div class="item-price">76k - 79k</div>
+            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Jadul%2028cm%20Topping" target="_blank" class="order-link">Pesan ➔</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. ROTI (IKON LOGO ROTI) -->
+    <section class="menu-section">
+      <div class="section-header">
+        <h2 class="brand-font">Price List Roti</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="grid-menu">
+
+        <div class="item-card">
+          <div class="item-icon">
+            <!-- Icon Roti / Bakery Bread -->
+            <svg viewBox="0 0 24 24"><path d="M12 4C7 4 3 7 3 10c0 1.2.6 2.3 1.7 3.2C4.3 13.7 4 14.5 4 15.5 4 18 7.5 20 12 20s8-2 8-4.5c0-1-.3-1.8-.7-2.3 1.1-.9 1.7-2 1.7-3.2 0-3-4-6-9-6zm-4.5 4a1.5 1.5 0 0 1 3 0v4a1.5 1.5 0 0 1-3 0V8zm6 0a1.5 1.5 0 0 1 3 0v4a1.5 1.5 0 0 1-3 0V8z"/></svg>
+          </div>
+          <div class="item-details">
+            <div class="item-title">Roti Manis</div>
+            <div class="item-sub">Tekstur lembut & manis harum</div>
+          </div>
+          <div class="item-action">
+            <div class="item-price">35.000</div>
+            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Roti%20Manis" target="_blank" class="order-link">Pesan ➔</a>
+          </div>
+        </div>
+
+        <div class="item-card">
+          <div class="item-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 4C7 4 3 7 3 10c0 1.2.6 2.3 1.7 3.2C4.3 13.7 4 14.5 4 15.5 4 18 7.5 20 12 20s8-2 8-4.5c0-1-.3-1.8-.7-2.3 1.1-.9 1.7-2 1.7-3.2 0-3-4-6-9-6zm-4.5 4a1.5 1.5 0 0 1 3 0v4a1.5 1.5 0 0 1-3 0V8zm6 0a1.5 1.5 0 0 1 3 0v4a1.5 1.5 0 0 1-3 0V8z"/></svg>
+          </div>
+          <div class="item-details">
+            <div class="item-title">Roti Abon Full Kotak</div>
+            <div class="item-sub">Taburan abon gurih & melimpah</div>
+          </div>
+          <div class="item-action">
+            <div class="item-price">72.000</div>
+            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Roti%20Abon%20Full%20Kotak" target="_blank" class="order-link">Pesan ➔</a>
+          </div>
+        </div>
+
+        <div class="item-card">
+          <div class="item-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 4C7 4 3 7 3 10c0 1.2.6 2.3 1.7 3.2C4.3 13.7 4 14.5 4 15.5 4 18 7.5 20 12 20s8-2 8-4.5c0-1-.3-1.8-.7-2.3 1.1-.9 1.7-2 1.7-3.2 0-3-4-6-9-6zm-4.5 4a1.5 1.5 0 0 1 3 0v4a1.5 1.5 0 0 1-3 0V8zm6 0a1.5 1.5 0 0 1 3 0v4a1.5 1.5 0 0 1-3 0V8z"/></svg>
+          </div>
+          <div class="item-details">
+            <div class="item-title">Roti Sobek / Sisir Ori</div>
+            <div class="item-sub">Klasik empuk favorit keluarga</div>
+          </div>
+          <div class="item-action">
+            <div class="item-price">15.000</div>
+            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Roti%20Sobek%20/%20Sisir%20Ori" target="_blank" class="order-link">Pesan ➔</a>
+          </div>
+        </div>
+
+        <div class="item-card">
+          <div class="item-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 4C7 4 3 7 3 10c0 1.2.6 2.3 1.7 3.2C4.3 13.7 4 14.5 4 15.5 4 18 7.5 20 12 20s8-2 8-4.5c0-1-.3-1.8-.7-2.3 1.1-.9 1.7-2 1.7-3.2 0-3-4-6-9-6zm-4.5 4a1.5 1.5 0 0 1 3 0v4a1.5 1.5 0 0 1-3 0V8zm6 0a1.5 1.5 0 0 1 3 0v4a1.5 1.5 0 0 1-3 0V8z"/></svg>
+          </div>
+          <div class="item-details">
+            <div class="item-title">Roti Bantal / Sobek Isi</div>
+            <div class="item-sub">Dengan variasi isian lezat</div>
+          </div>
+          <div class="item-action">
+            <div class="item-price">23.000</div>
+            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Roti%20Bantal%20/%20Sobek%20Isi" target="_blank" class="order-link">Pesan ➔</a>
+          </div>
+        </div>
+
+        <div class="item-card">
+          <div class="item-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 4C7 4 3 7 3 10c0 1.2.6 2.3 1.7 3.2C4.3 13.7 4 14.5 4 15.5 4 18 7.5 20 12 20s8-2 8-4.5c0-1-.3-1.8-.7-2.3 1.1-.9 1.7-2 1.7-3.2 0-3-4-6-9-6zm-4.5 4a1.5 1.5 0 0 1 3 0v4a1.5 1.5 0 0 1-3 0V8zm6 0a1.5 1.5 0 0 1 3 0v4a1.5 1.5 0 0 1-3 0V8z"/></svg>
+          </div>
+          <div class="item-details">
+            <div class="item-title">Paket 3 Roti (Mini)</div>
+            <div class="item-sub">Roti mini bisa campur rasa</div>
+          </div>
+          <div class="item-action">
+            <div class="item-price">13.000</div>
+            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Paket%203%20Roti%20Mini" target="_blank" class="order-link">Pesan ➔</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FLOATING BOTTOM BAR -->
+  <div class="floating-container">
+    <div class="floating-text">
+      <strong>Kafa Cake & Bakery</strong>
+      <span>Pesan cepat & kurir antar rumah</span>
+    </div>
+    <div class="floating-actions">
+      <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20saya%20mau%20order" target="_blank" class="floating-btn btn-wa-float">
+        💬 Order WA
+      </a>
+      <a href="https://share.google/VrqIJaeDTGUd3rwjS" target="_blank" class="floating-btn btn-map-float">
+        📍 Lokasi
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 <strong>Kafa Cake & Bakery</strong>. Freshly Baked with Love.</p>
+  </footer>
+
+</body>
+</html>
