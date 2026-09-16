@@ -7,7 +7,7 @@
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -113,7 +113,7 @@
       justify-content: center;
       gap: 12px;
       flex-wrap: wrap;
-      margin-bottom: 22px;
+      margin-bottom: 20px;
     }
 
     .btn {
@@ -150,6 +150,59 @@
     .btn-maps:hover {
       background-color: var(--brand-yellow-light);
       transform: translateY(-2px);
+    }
+
+    /* ONLINE FOOD DELIVERY BUTTONS */
+    .delivery-online-box {
+      margin-bottom: 20px;
+    }
+
+    .delivery-online-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--brand-brown);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .online-food-btns {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn-food {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border-radius: 50px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: #fff;
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-food:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      opacity: 0.95;
+    }
+
+    .btn-shopee {
+      background-color: #ee4d2d;
+    }
+
+    .btn-gofood {
+      background-color: #ed2736;
+    }
+
+    .btn-grab {
+      background-color: #00b14f;
     }
 
     /* KURIR DELIVERY CARD */
@@ -332,7 +385,6 @@
       border-color: var(--brand-yellow);
     }
 
-    /* Icon logo pengganti foto untuk pricelist */
     .item-icon {
       width: 50px;
       height: 50px;
@@ -471,6 +523,15 @@
         width: 105px;
         height: 105px;
       }
+      .online-food-btns {
+        flex-direction: column;
+        gap: 8px;
+      }
+      .btn-food {
+        justify-content: center;
+        width: 100%;
+        padding: 10px 14px;
+      }
       .grid-menu {
         grid-template-columns: 1fr;
       }
@@ -506,12 +567,28 @@
       
       <!-- Tombol Toko & Lokasi -->
       <div class="header-btns">
-        <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20saya%20mau%20order" target="_blank" class="btn btn-wa">
+        <a href="https://wa.me/6289676457333?text=Halo%20Kafa%20Bakery,%20saya%20mau%20order" target="_blank" class="btn btn-wa">
           <span>💬 Order via WhatsApp</span>
         </a>
         <a href="https://share.google/VrqIJaeDTGUd3rwjS" target="_blank" class="btn btn-maps">
           <span>📍 Lokasi Google Maps</span>
         </a>
+      </div>
+
+      <!-- TOMBOL ONLINE FOOD DELIVERY (ShopeeFood, GoFood, GrabFood) -->
+      <div class="delivery-online-box">
+        <div class="delivery-online-label">🛒 Atau Pesan Online Melalui:</div>
+        <div class="online-food-btns">
+          <a href="https://shopee.co.id/universal-link/now-food/shop/22362665?deep_and_deferred=1&shareChannel=copy_link" target="_blank" class="btn-food btn-shopee">
+            <span>🟠 ShopeeFood</span>
+          </a>
+          <a href="https://gofood.link/a/RbWnavJ" target="_blank" class="btn-food btn-gofood">
+            <span>🔴 GoFood</span>
+          </a>
+          <a href="https://r.grab.com/g/6-20260916_163859_e019748828f9419d8898e833ad8b00c5_MEXMPS-6-C7VGLEEBFGLGCT" target="_blank" class="btn-food btn-grab">
+            <span>🟢 GrabFood</span>
+          </a>
+        </div>
       </div>
 
       <!-- KOTAK INFORMASI KURIR / PESAN ANTAR -->
@@ -580,7 +657,7 @@
       </div>
     </section>
 
-    <!-- 1. BOLU GULUNG (IKON LOGO CAKE) -->
+    <!-- 1. BOLU GULUNG -->
     <section class="menu-section">
       <div class="section-header">
         <h2 class="brand-font">Price List Bolu Gulung</h2>
@@ -590,7 +667,6 @@
         
         <div class="item-card">
           <div class="item-icon">
-            <!-- Icon Cake / Bolu Minimalis -->
             <svg viewBox="0 0 24 24"><path d="M12 2a1.5 1.5 0 0 1 1.5 1.5c0 .32-.1.62-.28.86l.03.04a2.5 2.5 0 0 1 1.25 2.1c0 .4-.1.78-.28 1.11C15.1 7.8 16 8.78 16 10v1H8v-1c0-1.22.9-2.2 2-2.39-.18-.33-.28-.71-.28-1.11a2.5 2.5 0 0 1 1.25-2.1l.03-.04c-.18-.24-.28-.54-.28-.86A1.5 1.5 0 0 1 12 2m-7 10h14a1 1 0 0 1 1 1v6a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-6a1 1 0 0 1 1-1m2 2v5a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-5H7z"/></svg>
           </div>
           <div class="item-details">
@@ -599,7 +675,7 @@
           </div>
           <div class="item-action">
             <div class="item-price">47.000</div>
-            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Gulung%20Nanas" target="_blank" class="order-link">Pesan ➔</a>
+            <a href="https://wa.me/6289676457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Gulung%20Nanas" target="_blank" class="order-link">Pesan ➔</a>
           </div>
         </div>
 
@@ -613,7 +689,7 @@
           </div>
           <div class="item-action">
             <div class="item-price">47.000</div>
-            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Gulung%20Blueberry" target="_blank" class="order-link">Pesan ➔</a>
+            <a href="https://wa.me/6289676457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Gulung%20Blueberry" target="_blank" class="order-link">Pesan ➔</a>
           </div>
         </div>
 
@@ -627,7 +703,7 @@
           </div>
           <div class="item-action">
             <div class="item-price">47.000</div>
-            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Gulung%20Strawberry" target="_blank" class="order-link">Pesan ➔</a>
+            <a href="https://wa.me/6289676457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Gulung%20Strawberry" target="_blank" class="order-link">Pesan ➔</a>
           </div>
         </div>
 
@@ -641,7 +717,7 @@
           </div>
           <div class="item-action">
             <div class="item-price">49.000</div>
-            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Gulung%20Vanilla" target="_blank" class="order-link">Pesan ➔</a>
+            <a href="https://wa.me/6289676457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Gulung%20Vanilla" target="_blank" class="order-link">Pesan ➔</a>
           </div>
         </div>
 
@@ -655,7 +731,7 @@
           </div>
           <div class="item-action">
             <div class="item-price">49.000</div>
-            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Gulung%20Caramel" target="_blank" class="order-link">Pesan ➔</a>
+            <a href="https://wa.me/6289676457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Gulung%20Caramel" target="_blank" class="order-link">Pesan ➔</a>
           </div>
         </div>
 
@@ -669,7 +745,7 @@
           </div>
           <div class="item-action">
             <div class="item-price">54.000</div>
-            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Gulung%20Choco%20Meses" target="_blank" class="order-link">Pesan ➔</a>
+            <a href="https://wa.me/6289676457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Gulung%20Choco%20Meses" target="_blank" class="order-link">Pesan ➔</a>
           </div>
         </div>
 
@@ -683,7 +759,7 @@
           </div>
           <div class="item-action">
             <div class="item-price">54.000</div>
-            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Gulung%20Coklat%20Keju" target="_blank" class="order-link">Pesan ➔</a>
+            <a href="https://wa.me/6289676457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Gulung%20Coklat%20Keju" target="_blank" class="order-link">Pesan ➔</a>
           </div>
         </div>
 
@@ -697,7 +773,7 @@
           </div>
           <div class="item-action">
             <div class="item-price">54.000</div>
-            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Gulung%20Vanilla%20Keju" target="_blank" class="order-link">Pesan ➔</a>
+            <a href="https://wa.me/6289676457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Gulung%20Vanilla%20Keju" target="_blank" class="order-link">Pesan ➔</a>
           </div>
         </div>
 
@@ -711,7 +787,7 @@
           </div>
           <div class="item-action">
             <div class="item-price">54.000</div>
-            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Gulung%20Pandan%20Keju%20Coklat" target="_blank" class="order-link">Pesan ➔</a>
+            <a href="https://wa.me/6289676457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Gulung%20Pandan%20Keju%20Coklat" target="_blank" class="order-link">Pesan ➔</a>
           </div>
         </div>
 
@@ -725,7 +801,7 @@
           </div>
           <div class="item-action">
             <div class="item-price">54.000</div>
-            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Gulung%20Pandan%20Keju%20Vanilla" target="_blank" class="order-link">Pesan ➔</a>
+            <a href="https://wa.me/6289676457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Gulung%20Pandan%20Keju%20Vanilla" target="_blank" class="order-link">Pesan ➔</a>
           </div>
         </div>
 
@@ -739,14 +815,14 @@
           </div>
           <div class="item-action">
             <div class="item-price">70.000</div>
-            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Lapis%20Surabaya" target="_blank" class="order-link">Pesan ➔</a>
+            <a href="https://wa.me/6289676457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Lapis%20Surabaya" target="_blank" class="order-link">Pesan ➔</a>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- 2. BOLU JADUL (IKON LOGO CAKE) -->
+    <!-- 2. BOLU JADUL -->
     <section class="menu-section">
       <div class="section-header">
         <h2 class="brand-font">Price List Bolu Jadul</h2>
@@ -764,7 +840,7 @@
           </div>
           <div class="item-action">
             <div class="item-price">28.000</div>
-            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Jadul%2016cm%20Original" target="_blank" class="order-link">Pesan ➔</a>
+            <a href="https://wa.me/6289676457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Jadul%2016cm%20Original" target="_blank" class="order-link">Pesan ➔</a>
           </div>
         </div>
 
@@ -778,7 +854,7 @@
           </div>
           <div class="item-action">
             <div class="item-price">32.000</div>
-            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Jadul%2016cm%20Topping" target="_blank" class="order-link">Pesan ➔</a>
+            <a href="https://wa.me/6289676457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Jadul%2016cm%20Topping" target="_blank" class="order-link">Pesan ➔</a>
           </div>
         </div>
 
@@ -792,7 +868,7 @@
           </div>
           <div class="item-action">
             <div class="item-price">70.000</div>
-            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Jadul%2028cm%20Original/Zebra" target="_blank" class="order-link">Pesan ➔</a>
+            <a href="https://wa.me/6289676457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Jadul%2028cm%20Original/Zebra" target="_blank" class="order-link">Pesan ➔</a>
           </div>
         </div>
 
@@ -806,14 +882,14 @@
           </div>
           <div class="item-action">
             <div class="item-price">76k - 79k</div>
-            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Jadul%2028cm%20Topping" target="_blank" class="order-link">Pesan ➔</a>
+            <a href="https://wa.me/6289676457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Bolu%20Jadul%2028cm%20Topping" target="_blank" class="order-link">Pesan ➔</a>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- 3. ROTI (IKON LOGO ROTI) -->
+    <!-- 3. ROTI -->
     <section class="menu-section">
       <div class="section-header">
         <h2 class="brand-font">Price List Roti</h2>
@@ -823,7 +899,6 @@
 
         <div class="item-card">
           <div class="item-icon">
-            <!-- Icon Roti / Bakery Bread -->
             <svg viewBox="0 0 24 24"><path d="M12 4C7 4 3 7 3 10c0 1.2.6 2.3 1.7 3.2C4.3 13.7 4 14.5 4 15.5 4 18 7.5 20 12 20s8-2 8-4.5c0-1-.3-1.8-.7-2.3 1.1-.9 1.7-2 1.7-3.2 0-3-4-6-9-6zm-4.5 4a1.5 1.5 0 0 1 3 0v4a1.5 1.5 0 0 1-3 0V8zm6 0a1.5 1.5 0 0 1 3 0v4a1.5 1.5 0 0 1-3 0V8z"/></svg>
           </div>
           <div class="item-details">
@@ -832,7 +907,7 @@
           </div>
           <div class="item-action">
             <div class="item-price">35.000</div>
-            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Roti%20Manis" target="_blank" class="order-link">Pesan ➔</a>
+            <a href="https://wa.me/6289676457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Roti%20Manis" target="_blank" class="order-link">Pesan ➔</a>
           </div>
         </div>
 
@@ -846,7 +921,7 @@
           </div>
           <div class="item-action">
             <div class="item-price">72.000</div>
-            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Roti%20Abon%20Full%20Kotak" target="_blank" class="order-link">Pesan ➔</a>
+            <a href="https://wa.me/6289676457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Roti%20Abon%20Full%20Kotak" target="_blank" class="order-link">Pesan ➔</a>
           </div>
         </div>
 
@@ -860,7 +935,7 @@
           </div>
           <div class="item-action">
             <div class="item-price">15.000</div>
-            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Roti%20Sobek%20/%20Sisir%20Ori" target="_blank" class="order-link">Pesan ➔</a>
+            <a href="https://wa.me/6289676457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Roti%20Sobek%20/%20Sisir%20Ori" target="_blank" class="order-link">Pesan ➔</a>
           </div>
         </div>
 
@@ -874,7 +949,7 @@
           </div>
           <div class="item-action">
             <div class="item-price">23.000</div>
-            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Roti%20Bantal%20/%20Sobek%20Isi" target="_blank" class="order-link">Pesan ➔</a>
+            <a href="https://wa.me/6289676457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Roti%20Bantal%20/%20Sobek%20Isi" target="_blank" class="order-link">Pesan ➔</a>
           </div>
         </div>
 
@@ -888,7 +963,7 @@
           </div>
           <div class="item-action">
             <div class="item-price">13.000</div>
-            <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Paket%203%20Roti%20Mini" target="_blank" class="order-link">Pesan ➔</a>
+            <a href="https://wa.me/6289676457333?text=Halo%20Kafa%20Bakery,%20mau%20pesan%20Paket%203%20Roti%20Mini" target="_blank" class="order-link">Pesan ➔</a>
           </div>
         </div>
 
@@ -901,10 +976,10 @@
   <div class="floating-container">
     <div class="floating-text">
       <strong>Kafa Cake & Bakery</strong>
-      <span>Pesan cepat & kurir antar rumah</span>
+      <span>Pesan cepat via WhatsApp</span>
     </div>
     <div class="floating-actions">
-      <a href="https://wa.me/6289576457333?text=Halo%20Kafa%20Bakery,%20saya%20mau%20order" target="_blank" class="floating-btn btn-wa-float">
+      <a href="https://wa.me/6289676457333?text=Halo%20Kafa%20Bakery,%20saya%20mau%20order" target="_blank" class="floating-btn btn-wa-float">
         💬 Order WA
       </a>
       <a href="https://share.google/VrqIJaeDTGUd3rwjS" target="_blank" class="floating-btn btn-map-float">
