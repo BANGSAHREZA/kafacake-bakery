@@ -508,6 +508,42 @@
       color: var(--brand-brown);
     }
 
+    /* FLOATING MUSIC BUTTON (KECIL DI POJOK) */
+    .music-float-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--brand-brown);
+      color: var(--brand-yellow);
+      border: 2px solid var(--brand-yellow);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(61, 26, 12, 0.3);
+      z-index: 1000;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .music-float-btn:hover {
+      transform: scale(1.1);
+      background: var(--brand-brown-light);
+    }
+
+    @keyframes pulse-music {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .playing {
+      animation: pulse-music 2s infinite;
+    }
+
     footer {
       text-align: center;
       margin-top: 45px;
@@ -550,10 +586,25 @@
         justify-content: center;
         padding: 11px;
       }
+      .music-float-btn {
+        top: 15px;
+        right: 15px;
+        width: 38px;
+        height: 38px;
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
+
+  <!-- AUDIO PEMUTAR OTOMATIS -->
+  <audio id="bg-music" src="lagu.mp3" loop preload="auto"></audio>
+
+  <!-- TOMBOL MELAYANG PAUSE/PLAY MUSIK DI POJOK -->
+  <button id="music-btn" class="music-float-btn playing" onclick="toggleMusic()" title="Putar/Jeda Musik">
+    🎵
+  </button>
 
   <!-- HEADER -->
   <header>
@@ -580,9 +631,6 @@
       <div class="delivery-online-box">
         <div class="delivery-online-label">🛒 Atau Pesan Online Melalui:</div>
         <div class="online-food-btns">
-          <!-- <a href="https://shopee.co.id/universal-link/now-food/shop/22362665?deep_and_deferred=1&shareChannel=copy_link" target="_blank" class="btn-food btn-shopee">
-            <span>🟠 ShopeeFood</span>
-          </a> -->
           <a href="https://gofood.link/a/RbWnavJ" target="_blank" class="btn-food btn-gofood">
             <span>🔴 GoFood</span>
           </a>
@@ -992,6 +1040,49 @@
   <footer>
     <p>© 2026 <strong>Kafa Cake & Bakery</strong>. Freshly Baked with Love.</p>
   </footer>
+
+  <!-- JAVASCRIPT UNTUK AUTOPLAY & TOGGLE MUSIK -->
+  <script>
+    const music = document.getElementById('bg-music');
+    const musicBtn = document.getElementById('music-btn');
+
+    // Coba langsung mainkan saat halaman dimuat
+    window.addEventListener('DOMContentLoaded', () => {
+      music.volume = 0.5; // Set volume 50%
+      music.play().then(() => {
+        musicBtn.classList.add('playing');
+        musicBtn.innerHTML = '🎵';
+      }).catch(error => {
+        // Jika diblokir oleh browser (Autoplay Policy), musik akan menyala otomatis saat user melakukan interaksi klik pertama di layar
+        musicBtn.classList.remove('playing');
+        musicBtn.innerHTML = '🔇';
+        
+        const enableAudio = () => {
+          music.play();
+          musicBtn.classList.add('playing');
+          musicBtn.innerHTML = '🎵';
+          document.removeEventListener('click', enableAudio);
+          document.removeEventListener('touchstart', enableAudio);
+        };
+        
+        document.addEventListener('click', enableAudio);
+        document.addEventListener('touchstart', enableAudio);
+      });
+    });
+
+    // Fungsi Tombol Pause / Play Kecil
+    function toggleMusic() {
+      if (music.paused) {
+        music.play();
+        musicBtn.classList.add('playing');
+        musicBtn.innerHTML = '🎵';
+      } else {
+        music.pause();
+        musicBtn.classList.remove('playing');
+        musicBtn.innerHTML = '🔇';
+      }
+    }
+  </script>
 
 </body>
 </html>
